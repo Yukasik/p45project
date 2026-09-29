@@ -18,7 +18,7 @@
         <div class="main-cards">
             @foreach ($array as $item)
                 <div class="main-card">
-                    <img src="{{ Vite::asset('resources/images/'.$item['path']) }}" alt="{{ $item['title'] }}">
+                    <img src="{{ Vite::asset('resources/images/'.$item['path']) }}" alt="{{ $item['title']}}" class="main-card-img">
                     <h3>{{ $item['title'] }}</h3>
                     <h3>{{ $item['price'] }}</h3>
                 </div>

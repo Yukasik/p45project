@@ -73,3 +73,8 @@ main {
     border: 1px solid black;
     padding: 10px;
 }
+
+.main-card-img {
+    width: 150px;
+    height: 150px;
+}
