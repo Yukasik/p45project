@@ -106,3 +106,11 @@ main {
     height: 200px;
     border-radius: 10px;
 }
+
+.array-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    font-weight: 500;
+}
