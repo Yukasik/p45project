@@ -12,16 +12,15 @@
     <header>
         <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="logo" class="header-img">
         <div class="header-navigation">
-            <a href="/">Главная</a>
-            <a href="/array">Массивы</a>
+            <a href="{{ route('home') }}">Главная</a>
+            <a href="{{ route('array') }}">Массивы</a>
         </div>
     </header>
     <main class="array-main">
         <div class="array-links">
-            <a href="/array/shuffle">Перемешать массив</a>
-            <a href="/array/sort">Сортировать массив</a>
-            <a href="/array/filter">Отфильтровать массив</a>
-            <a href="/array">Вернуть обратно</a>
+            <a href="{{ route('array.shuffle') }}">Перемешать массив</a>
+            <a href="{{ route('array.sort') }}">Сортировать массив</a>
+            <a href="{{ route('array.filter') }}">Отфильтровать массив</a>
         </div>
         <div class="main-cards">
             @foreach ($array as $item)

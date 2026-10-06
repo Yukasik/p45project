@@ -12,8 +12,8 @@
     <header>
         <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="logo" class="header-img">
         <div class="header-navigation">
-            <a href="/">Главная</a>
-            <a href="/array">Массивы</a>
+            <a href="{{ route('home') }}">Главная</a>
+            <a href="{{ route('array') }}">Массивы</a>
         </div>
     </header>
     <main class="home-main">
