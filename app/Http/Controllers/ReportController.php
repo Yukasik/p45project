@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -48,8 +49,10 @@ class ReportController extends Controller
             'description' => 'string',
         ]);
 
-        $report->create($data);
+        $data['user_id'] = Auth::user()->id;
+        $data['status_id'] = 1;
 
+        $report->create($data);
         return redirect()->route('reports.index');
     }
 

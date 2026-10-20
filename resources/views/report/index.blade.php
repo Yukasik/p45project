@@ -11,12 +11,12 @@
 <body>
     <main>
         <div class="my-5">
-            <a href="{{ route('reports.create') }}" class="bg-black px-3.75 py-1.25 rounded-[15px] cursor-pointer text-white hover:bg-gray-700 transition duration-200">создать заявление</a>
+            <a href="{{ route('reports.create') }}" class="bg-black px-5 py-1.25 rounded-[20px] cursor-pointer text-white hover:bg-gray-700 transition duration-200 text-lg">создать заявление</a>
         </div>
         <div class="mb-2">
             <span class="mr-2.5">сортировка по дате создания:</span>
             <a href="{{ route('reports.index', ['sort' => 'desc', 'status' => $status]) }}" class="border border-black rounded-[20px] py-1.25 px-5">сначала новые</a>
-            <a href="{{ route('reports.index', ['sort' => 'asc', 'status' => $status]) }}">сначала старые</a>
+            <a href="{{ route('reports.index', ['sort' => 'asc', 'status' => $status]) }}" class="border border-black rounded-[20px] py-1.25 px-5">сначала старые</a>
         </div>
         <div class="report-filter">
             <p>фильтрация по статусу заявки:</p>
