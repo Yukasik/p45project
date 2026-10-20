@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>редактирование заявления</title>
-</head>
-
-<body>
+<x-app-layout>
     <main class="report-main">
         <form action="{{ route('reports.update', $report->id) }}" method="POST" class="reports-form">
             @csrf
@@ -18,6 +10,4 @@
             <input type="submit" value="обновить" class="reports-form-btn">
         </form>
     </main>
-</body>
-
-</html>
+</x-app-layout>

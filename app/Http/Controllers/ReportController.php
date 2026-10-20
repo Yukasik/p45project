@@ -23,10 +23,12 @@ class ReportController extends Controller
 
         if ($validate) {
             $reports = Report::where('status_id', $status)
+                ->where('user_id', Auth::user()->id)
                 ->orderBy('created_at', $sort)
                 ->paginate(8);
         } else {
-            $reports = Report::orderBy('created_at', $sort)
+            $reports = Report::where('user_id', Auth::user()->id)
+                ->orderBy('created_at', $sort)
                 ->paginate(8);
         }
 
@@ -63,7 +65,11 @@ class ReportController extends Controller
 
     public function edit(Report $report)
     {
-        return view('report.edit', compact('report'));
+        if (Auth::user()->id === $report->user_id) {
+            return view('report.edit', compact('report'));
+        } else {
+            abort(403, "у вас нет прав на редактирование этой записи");
+        }
     }
 
     public function update(Request $request, Report $report)

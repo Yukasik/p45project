@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>заявления</title>
-</head>
-
-<body>
+<x-app-layout>
     <main>
         <div class="my-5">
             <a href="{{ route('reports.create') }}" class="bg-black px-5 py-1.25 rounded-[20px] cursor-pointer text-white hover:bg-gray-700 transition duration-200 text-lg">создать заявление</a>
@@ -51,6 +43,4 @@
         </div>
         {{ $reports->appends(request()->query())->links() }}
     </main>
-</body>
-
-</html>
+</x-app-layout>
