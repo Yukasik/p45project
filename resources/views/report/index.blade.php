@@ -10,12 +10,12 @@
 
 <body>
     <main>
-        <div>
-            <a href="{{ route('reports.create') }}" class="report-btn">создать заявление</a>
+        <div class="my-5">
+            <a href="{{ route('reports.create') }}" class="bg-black px-3.75 py-1.25 rounded-[15px] cursor-pointer text-white hover:bg-gray-700 transition duration-200">создать заявление</a>
         </div>
-        <div class="report-sort">
-            <span class="report-sort-title">сортировка по дате создания:</span>
-            <a href="{{ route('reports.index', ['sort' => 'desc', 'status' => $status]) }}">сначала новые</a>
+        <div class="mb-2">
+            <span class="mr-2.5">сортировка по дате создания:</span>
+            <a href="{{ route('reports.index', ['sort' => 'desc', 'status' => $status]) }}" class="border border-black rounded-[20px] py-1.25 px-5">сначала новые</a>
             <a href="{{ route('reports.index', ['sort' => 'asc', 'status' => $status]) }}">сначала старые</a>
         </div>
         <div class="report-filter">
@@ -35,7 +35,7 @@
                     <h2>{{ $report -> number }}</h2>
                     <p>{{ $report -> description }}</p>
                     <p>{{ $report -> created_at -> format('d.m.Y') }}</p>
-                    <p>{{ $report -> status -> name }}</p>
+                    <p>{{ $report -> status -> name ?? 'без статуса'}}</p>
                 </div>
                 <div class="report-card-btns">
                     <form method="POST" action="{{ route('reports.destroy', $report->id) }}" class="report-card-form">

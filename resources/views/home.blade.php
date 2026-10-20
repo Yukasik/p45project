@@ -14,6 +14,7 @@
         <div class="header-navigation">
             <a href="{{ route('home') }}">Главная</a>
             <a href="{{ route('array') }}">Массивы</a>
+            <a href="{{ route('reports.index') }}">Заявления</a>
         </div>
     </header>
     <main class="home-main">
