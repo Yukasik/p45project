@@ -1,7 +1,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <x-app-layout>
-    <main>
+    <main class="main-report">
         <div class="my-5">
             <a href="{{ route('reports.create') }}" class="bg-black px-5 py-1.25 rounded-[20px] cursor-pointer text-white hover:bg-gray-700 transition duration-200 text-lg">создать заявление</a>
         </div>
