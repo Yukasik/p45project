@@ -11,12 +11,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    const ADMIN_ROLE = 'admin';
+
+    public function isAdmin() {
+        return $this->role === self::ADMIN_ROLE;
+    }
 
     public function reports(): HasMany
     {

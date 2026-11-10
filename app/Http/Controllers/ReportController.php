@@ -87,4 +87,19 @@ class ReportController extends Controller
         $report->update($data);
         return redirect()->route('reports.index');
     }
+
+    public function statusUpdate(Request $request, Report $report)
+    {
+
+        if ($report->status->name !== 'новое') {
+            return redirect()->back();
+        }
+
+        $request->validate([
+            'status_id' => 'required|exists:statuses,id',
+        ]);
+
+        $report->update($request->only(['status_id']));
+        return redirect()->back();
+    }
 }
