@@ -90,7 +90,6 @@ class ReportController extends Controller
 
     public function statusUpdate(Request $request, Report $report)
     {
-
         if ($report->status->name !== 'новое') {
             return redirect()->back();
         }
