@@ -34,6 +34,14 @@ Route::middleware(Admin::class)->group(function () {
 });
 
 
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/second', function () {
+    return view('second');
+});
+
 // Route::get('/', [MainController::class, 'showIndex'])->name('home');
 // Route::get('/array', [MainController::class, 'showArray'])->name('array');
 // Route::get('/array/shuffle', [MainController::class, 'shuffleArray'])->name('array.shuffle');
