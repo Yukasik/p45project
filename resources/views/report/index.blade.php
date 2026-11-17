@@ -14,7 +14,7 @@
                 <div class="report-card-des">
                     <h2>{{ $report -> number }}</h2>
                     <p>{{ $report -> description }}</p>
-                    <p>{{ $report -> created_at -> format('d.m.Y') }}</p>
+                    <p>{{\Carbon\Carbon::parse($report->created_at)->translatedFormat('j F Y h:i');}}</p>
                     <x-status :type="$report->status->id">
                         {{ $report -> status -> name }}
                     </x-status>
