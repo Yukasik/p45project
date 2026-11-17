@@ -6,8 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <!-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> -->
-                        НарушенийНЕТ
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
@@ -19,13 +18,13 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('reports.index')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
                         {{ __('Список заявлений') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('reports.create')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
                         {{ __('Создание заявления') }}
                     </x-nav-link>
                 </div>
@@ -87,13 +86,13 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
                 {{ __('Список заявлений') }}
             </x-responsive-nav-link>
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('reports.create')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
                 {{ __('Создание заявления') }}
             </x-responsive-nav-link>
         </div>
