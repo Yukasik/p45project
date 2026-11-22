@@ -1,36 +1,43 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <x-app-layout>
-    <main class="main-report">
-        <div class="my-5">
-            <a href="{{ route('reports.create') }}" class="bg-black px-5 py-1.25 rounded-[20px] cursor-pointer text-white hover:bg-gray-700 transition duration-200 text-lg">создать заявление</a>
+    <div class="page">
+        <div class="page-actions">
+            <a href="{{ route('reports.create') }}" class="btn btn--lg">создать заявление</a>
         </div>
-        <x-filter :sort=$sort :status=$status>
 
-        </x-filter>
+        <x-filter :sort=$sort :status=$status />
+
         <div class="report-cards">
             @foreach ($reports as $report)
             <div class="report-card">
                 <div class="report-card-des">
-                    <h2>{{ $report -> number }}</h2>
-                    <p>{{ $report -> description }}</p>
-                    <p>{{\Carbon\Carbon::parse($report->created_at)->translatedFormat('j F Y h:i');}}</p>
-                    <x-status :type="$report->status->id">
-                        {{ $report -> status -> name }}
-                    </x-status>
-                </div>
-                <div class="report-card-btns">
-                    <form method="POST" action="{{ route('reports.destroy', $report->id) }}" class="report-card-form">
-                        @method('DELETE')
-                        @csrf
-                        <input type="submit" value="удалить" class="report-card-btn">
-                    </form>
+                    <div class="report-card-des-top">
+                        <h2>{{ $report->number }}</h2>
+                        <div class="report-card-btns">
+                            <a href="{{ route('reports.edit', $report->id) }}">
+                                <x-edit />
+                            </a>
 
-                    <a href="{{ route('reports.edit', $report->id) }}" class="report-card-btn">редактировать</a>
+                            <form method="POST" action="{{ route('reports.destroy', $report->id) }}" class="report-card-form">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" aria-label="удалить">
+                                    <x-delete />
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <p>{{ $report->description }}</p>
+                    <p>{{ \Carbon\Carbon::parse($report->created_at)->translatedFormat('j F Y H:i') }}</p>
                 </div>
+                <x-status :type="$report->status->id">
+                    {{ $report->status->name }}
+                </x-status>
             </div>
             @endforeach
         </div>
+
         {{ $reports->appends(request()->query())->links() }}
-    </main>
+    </div>
 </x-app-layout>

@@ -1,13 +1,13 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <x-app-layout>
-    <main class="report-main">
-        <form action="{{ route('reports.update', $report->id) }}" method="POST" class="reports-form">
+    <div class="page form-page">
+        <form action="{{ route('reports.update', $report->id) }}" method="POST" class="form">
             @csrf
             @method('PUT')
-            <input type="text" name="number" value="{{ $report->number }}" required>
-            <textarea name="description" required>{{ $report->description }}</textarea>
-            <input type="submit" value="обновить" class="reports-form-btn">
+            <input type="text" name="number" value="{{ $report->number }}" class="form-input" required>
+            <textarea name="description" class="form-textarea" required>{{ $report->description }}</textarea>
+            <input type="submit" value="обновить" class="btn btn--block">
         </form>
-    </main>
+    </div>
 </x-app-layout>
