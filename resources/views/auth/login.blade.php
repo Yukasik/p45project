@@ -4,7 +4,6 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
         <!-- Login -->
         <div>
             <x-input-label for="login" :value="__('Login')" />
@@ -33,11 +32,12 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                {{ __('Forgot your password?') }}
-            </a>
-            @endif
+            <div class="flex gap-[1px]">
+                <p class="text-sm text-gray-600 cursor-default">Ещё не зарегистрированы?</p>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                    {{ __('Зарегистрироваться') }}
+                </a>
+            </div>
 
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}

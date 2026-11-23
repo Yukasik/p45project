@@ -2,8 +2,9 @@
 
 <x-app-layout>
     <div class="page">
-        <div class="page-actions">
-            <a href="{{ route('reports.create') }}" class="btn btn--lg">создать заявление</a>
+        <div class="page-title">
+            <h1>Список заявок</h1>
+            <a href="{{ route('reports.create') }}" class="btn btn--lg">Cоздать заявление</a>
         </div>
 
         <x-filter :sort=$sort :status=$status />
@@ -18,7 +19,6 @@
                             <a href="{{ route('reports.edit', $report->id) }}">
                                 <x-edit />
                             </a>
-
                             <form method="POST" action="{{ route('reports.destroy', $report->id) }}" class="report-card-form">
                                 @method('DELETE')
                                 @csrf

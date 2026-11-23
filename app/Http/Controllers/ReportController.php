@@ -25,11 +25,11 @@ class ReportController extends Controller
             $reports = Report::where('status_id', $status)
                 ->where('user_id', Auth::user()->id)
                 ->orderBy('created_at', $sort)
-                ->paginate(8);
+                ->paginate(6);
         } else {
             $reports = Report::where('user_id', Auth::user()->id)
                 ->orderBy('created_at', $sort)
-                ->paginate(8);
+                ->paginate(6);
         }
 
         $statuses = Status::all();

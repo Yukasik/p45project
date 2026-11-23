@@ -33,8 +33,16 @@ body {
     padding-block: 20px;
 }
 
-.page-actions {
-    margin-bottom: 20px;
+.page-title {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-title h1 {
+    font-size: 28px;
+    font-weight: 500;
 }
 
 .btn {
@@ -43,24 +51,83 @@ body {
     justify-content: center;
     padding: 5px 15px;
     border: 0;
-    border-radius: 100px;
+    border-radius: 50px;
     background-color: #007bff;
-    color: rgb(255, 255, 255);
-    font: inherit;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: 0.3s;
+    font-weight: 500;
 }
 
 .btn:hover {
     background-color: #005abb;
 }
 
+.report-sort {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.report-sort label,
+.report-filter p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.report-sort select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    padding: 5px 30px 5px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+
+    background-color: white;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 45%,
+            #000000 45%,
+            #000000 55%,
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            transparent 45%,
+            #000000 45%,
+            #000000 55%,
+            transparent 55%
+        );
+
+    background-position:
+        calc(100% - 15px) center,
+        calc(100% - 10px) center;
+
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.report-sort select:focus {
+    border-color: #007bff;
+}
+
+.report-sort select:focus {
+    border-color: #007bff;
+}
+
 .report-filter {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .report-filter ul {
@@ -71,15 +138,24 @@ body {
 
 .report-filter ul li {
     padding: 3px 20px;
-    border: 1px solid #007bff;
-    border-radius: 999px;
+    background-color: white;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 8px rgb(236, 236, 236);
+    transition: 0.3s;
+    text-transform: capitalize;
+}
+
+.report-filter ul li:hover,
+.report-filter ul li.active {
+    border-color: #007bff;
 }
 
 .report-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin: 20px 0 50px;
+    margin: 20px 0 40px;
 }
 
 .report-card {
@@ -87,26 +163,31 @@ body {
     flex-direction: column;
     gap: 15px;
     min-width: 0;
-    min-height: 370px;
+    min-height: 315px;
     padding: 15px;
-    border: 1px solid #007bff;
     border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgb(207, 207, 207);
+    transition: 0.3s;
+}
+
+.report-card:hover {
+    transform: scale(1.05);
 }
 
 .report-card-des {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 15px;
     width: 100%;
     overflow-wrap: anywhere;
 }
 
 .report-card-des-top {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: 10px;
 }
 
 .icon {
@@ -121,8 +202,8 @@ body {
 
 .report-card-des-top h2 {
     flex: 1;
-    min-width: 0;
     font-weight: 500;
+    font-size: 20px;
 }
 
 .report-card-btns {
@@ -146,7 +227,10 @@ body {
 .form-page {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 80vh;
     padding-block: 30px;
+    box-sizing: border-box;
 }
 
 .form {
@@ -157,7 +241,7 @@ body {
     max-width: 400px;
     margin-inline: auto;
     padding: 30px;
-    background: #fff;
+    background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -166,14 +250,14 @@ body {
 .form-textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #007bff;
     border-radius: 10px;
-    background: #fff;
+    background: white;
 }
 
 .form-textarea {
-    min-height: 150px;
-    resize: vertical;
+    min-height: 200px;
+    resize: none;
 }
 
 .admin-title {

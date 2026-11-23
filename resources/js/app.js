@@ -1,8 +1,8 @@
 import.meta.glob(["../images/**", "../fonts/**"]);
-import 'flowbite';
+import "flowbite";
 import Alpine from "alpinejs";
 
-import mask from '@alpinejs/mask';
+import mask from "@alpinejs/mask";
 Alpine.plugin(mask);
 
 window.Alpine = Alpine;
@@ -14,5 +14,13 @@ console.log(selectElements);
 for (let elem of selectElements) {
     elem.addEventListener("change", function () {
         this.form.submit();
+    });
+}
+
+const sortSelect = document.querySelector("#report-sort");
+
+if (sortSelect) {
+    sortSelect.addEventListener("change", function () {
+        window.location.href = this.value;
     });
 }

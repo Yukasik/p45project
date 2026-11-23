@@ -2,32 +2,33 @@
 
 <div>
     <div class="report-filter">
-        <p>сортировка по дате создания:</p>
+        <!-- <p>Фильтрация по статусу заявки:</p> -->
         <ul>
-            <li>
-                <a href="{{ route('reports.index', ['sort' => 'desc', 'status' => $status]) }}">сначала новые</a>
+            <li class="{{ !$status ? 'active' : '' }}">
+                <a href="{{ route('reports.index') }}">все</a>
             </li>
-            <li>
-                <a href="{{ route('reports.index', ['sort' => 'asc', 'status' => $status]) }}">сначала старые</a>
-            </li>
-            <li>
-                <a href="{{ route('reports.index') }}">сбросить</a>
-            </li>
-        </ul>
-
-
-    </div>
-    <div class="report-filter">
-        <p>фильтрация по статусу заявки:</p>
-        <ul>
-            @foreach ($statuses as $status)
-            <li>
-                <a href="{{ route('reports.index', ['sort' => $sort, 'status' => $status->id]) }}">{{ $status->name }}</a>
+            @foreach ($statuses as $item)
+            <li class="{{ $status == $item->id ? 'active' : '' }}">
+                <a href="{{ route('reports.index', ['sort' => $sort, 'status' => $item->id]) }}">
+                    {{ $item->name }}
+                </a>
             </li>
             @endforeach
-            <li>
-                <a href="{{ route('reports.index') }}">сбросить</a>
-            </li>
         </ul>
+        <div class="report-sort">
+            <!-- <label for="report-sort">Сортировка по дате создания:</label> -->
+
+            <select id="report-sort">
+                <option value="{{ route('reports.index', ['sort' => 'desc', 'status' => $status]) }}"
+                    {{ $sort === 'desc' ? 'selected' : '' }}>
+                    Сначала новые
+                </option>
+
+                <option value="{{ route('reports.index', ['sort' => 'asc', 'status' => $status]) }}"
+                    {{ $sort === 'asc' ? 'selected' : '' }}>
+                    Сначала старые
+                </option>
+            </select>
+        </div>
     </div>
 </div>
