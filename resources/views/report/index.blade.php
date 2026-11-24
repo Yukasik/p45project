@@ -4,11 +4,11 @@
     <div class="page">
         <div class="page-title">
             <h1>Список заявок</h1>
-            <a href="{{ route('reports.create') }}" class="btn btn--lg">Cоздать заявление</a>
+            <a href="{{ route('reports.create') }}" class="btn">Cоздать заявление</a>
         </div>
 
         <x-filter :sort=$sort :status=$status />
-        
+
         <div class="report-cards">
             @foreach ($reports as $report)
             <div class="report-card">

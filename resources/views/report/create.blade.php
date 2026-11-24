@@ -4,7 +4,7 @@
             @csrf
             <input type="text" name="number" class="form-input" placeholder="Введите номер авто" required />
             <textarea name="description" class="form-textarea" placeholder="Введите описание заявки" required></textarea>
-            <input type="submit" value="Создать" class="btn btn--block">
+            <input type="submit" value="Создать" class="btn">
         </form>
     </div>
-</x-app-layout> 
+</x-app-layout>
