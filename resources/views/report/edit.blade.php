@@ -1,5 +1,3 @@
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-
 <x-app-layout>
     <div class="page form-page">
         <form action="{{ route('reports.update', $report->id) }}" method="POST" class="form">
