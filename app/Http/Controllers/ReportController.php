@@ -60,7 +60,7 @@ class ReportController extends Controller
         $data['status_id'] = 1;
 
         $report->create($data);
-        return redirect()->route('reports.index')->with('info', 'Заявление отправлено');
+        return redirect()->route('reports.index')->with('success', 'Заявление отправлено');
     }
 
     public function show(Report $report)
@@ -85,7 +85,7 @@ class ReportController extends Controller
         ]);
 
         $report->update($data);
-        return redirect()->route('reports.index')->with('info', 'Заявление изменено');
+        return redirect()->route('reports.index')->with('success', 'Заявление изменено');
     }
 
     public function statusUpdate(Request $request, Report $report)
@@ -99,6 +99,6 @@ class ReportController extends Controller
         ]);
 
         $report->update($request->only(['status_id']));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Статус изменен');
     }
 }
