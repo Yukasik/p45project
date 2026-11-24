@@ -8,7 +8,7 @@
         </div>
 
         <x-filter :sort=$sort :status=$status />
-
+        
         <div class="report-cards">
             @foreach ($reports as $report)
             <div class="report-card">
